@@ -19,8 +19,7 @@ import java.util.UUID;
 public class SecurityServiceImpl implements SecurityService {
     private AppUserRepository appUserRepository ;
     private AppRoleRepository appRoleRepository ;
- private PasswordEncoder passwordEncoder ;
-
+    private PasswordEncoder passwordEncoder ;
     @Override
     public AppUser saveNewUSer(String username, String password, String verifyPassword) {
        if(!password.equals((verifyPassword))) throw  new RuntimeException(" passwords not matching ") ;
@@ -54,13 +53,10 @@ public class SecurityServiceImpl implements SecurityService {
 AppUser appUser =  appUserRepository.findByUsername(username) ;
         if(appUser!=null) {
             new RuntimeException("User "+username + " not found .") ;
-
         }
 AppRole appRole= appRoleRepository.findByRoleName(rolename) ;
         if(appRole!=null) {
-            new RuntimeException("Role "+rolename + " not found .") ;
-
-        }
+            new RuntimeException("Role "+rolename + " not found .") ;}
 appUser.getAppRoles().add(appRole) ;
 appUserRepository.save(appUser) ;
     }
@@ -70,18 +66,13 @@ appUserRepository.save(appUser) ;
         AppUser appUser =  appUserRepository.findByUsername(username) ;
         if(appUser!=null) {
             new RuntimeException("User "+username + " not found .") ;
-
         }
         AppRole appRole= appRoleRepository.findByRoleName(rolename) ;
         if(appRole!=null) {
-            new RuntimeException("Role "+rolename + " not found .") ;
-
-        }
+            new RuntimeException("Role "+rolename + " not found .") ;}
         appUser.getAppRoles().remove(appRole) ;
     }
-
     @Override
     public AppUser loadUserByUserName(String username) {
-     return    appUserRepository.findByUsername(username) ;
-    }
+     return    appUserRepository.findByUsername(username) ;}
 }

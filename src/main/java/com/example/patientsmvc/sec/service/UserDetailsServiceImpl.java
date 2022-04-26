@@ -17,11 +17,9 @@ import java.util.stream.Collectors;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private SecurityService securityService ;
-
     public UserDetailsServiceImpl(SecurityService securityService) {
         this.securityService = securityService;
     }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser appUser= securityService.loadUserByUserName(username) ;
