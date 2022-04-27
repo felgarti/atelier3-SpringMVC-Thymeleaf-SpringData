@@ -9,7 +9,7 @@ layout:decorate="template1">
 </head>
 <body>
 <div layout:fragment="content1">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 offset-3 mt-2">
 
         <form method="post" th:action="@{/admin/save}">
             <div >
@@ -32,11 +32,13 @@ layout:decorate="template1">
                 <input class="form-control" type="text" name="score" th:value="${patient.score}">
                 <span class="text-danger" th:errors="${patient.score}"/>
             </div>
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <br>
+           <button type="submit" class="btn btn-primary">Enregistrer</button>
+
         </form>
 
+        </div>
 
-    </div>
 
 
 </div>

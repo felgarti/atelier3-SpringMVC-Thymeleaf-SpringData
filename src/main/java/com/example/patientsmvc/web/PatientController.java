@@ -85,7 +85,7 @@ public String delete(Long id,@RequestParam(name="keyword" , defaultValue = "")  
         return "formPatients" ;
     }
     @PostMapping(path="/admin/save")
-    public String save(Model model , @Valid Patient patient , BindingResult bindingResult  , String keyword , int page )
+    public String save(Model model , @Valid Patient patient , BindingResult bindingResult  ,@RequestParam(name="keyword" , defaultValue = "") String keyword ,@RequestParam(name="page" , defaultValue = "0") int page )
     {
         if(bindingResult.hasErrors())
               return "formPatients" ;

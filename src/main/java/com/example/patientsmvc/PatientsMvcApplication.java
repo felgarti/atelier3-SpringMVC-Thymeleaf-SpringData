@@ -1,6 +1,8 @@
 package com.example.patientsmvc;
 
+import com.example.patientsmvc.entities.Medecin;
 import com.example.patientsmvc.entities.Patient;
+import com.example.patientsmvc.repositories.MedecinRepository;
 import com.example.patientsmvc.repositories.PatientRepository;
 import com.example.patientsmvc.sec.service.SecurityService;
 import org.springframework.boot.CommandLineRunner;
@@ -20,28 +22,33 @@ public class PatientsMvcApplication {
 
     }
 
-   // @Bean
-    CommandLineRunner commandLineRunner(PatientRepository patientRepository)
+   @Bean
+    CommandLineRunner commandLineRunner(PatientRepository patientRepository , MedecinRepository medecinRepository)
     {
         return  args -> {
-//            patientRepository.save(new Patient(null , "Fatima " , new Date() , false , 15)) ;
-//            patientRepository.save(new Patient(null , "Hamza " , new Date() , true , 18)) ;
-//            patientRepository.save(new Patient(null , "Manal " , new Date() , false , 17)) ;
-//            patientRepository.save(new Patient(null , "Yousra " , new Date() , true , 16)) ;
+
+            medecinRepository.save(new Medecin(null ,  " mail@email.com" , "medecin1" ,"cardio")) ;
+            medecinRepository.save(new Medecin(null ,  " bro@email.com" , "medecin2" ,"neuro")) ;
+            medecinRepository.save(new Medecin(null , " test@email.com" , "medecin3" , "famille")) ;
+            medecinRepository.save(new Medecin(null , " ik@email.com" , "medecin4" , "traumato")) ;
+            patientRepository.save(new Patient(null , "Fatima " , new Date() , false , 15)) ;
+            patientRepository.save(new Patient(null , "Hamza " , new Date() , true , 18)) ;
+            patientRepository.save(new Patient(null , "Manal " , new Date() , false , 17)) ;
+            patientRepository.save(new Patient(null , "Yousra " , new Date() , true , 16)) ;
 
         } ;
     }
-    @Bean CommandLineRunner saveUsers(SecurityService securityService){
-        return  args -> {
+//    @Bean CommandLineRunner saveUsers(SecurityService securityService){
+//       return  args -> {
 //            securityService.saveNewUSer("fatima" , "1234","1234") ;
 //            securityService.saveNewUSer("yousra" , "1234","1234") ;
 //            securityService.saveNewRole("USER" , " une desc ") ;
 //            securityService.saveNewRole("ADMIN" , "" );
 //            securityService.addRoleToUser("fatima" , "ADMIN");
 //            securityService.addRoleToUser("yousra" , "USER");
-
-        } ;
-    }
+//
+//        } ;
+//    }
     @Bean
     PasswordEncoder passwordEncoder()
     {
