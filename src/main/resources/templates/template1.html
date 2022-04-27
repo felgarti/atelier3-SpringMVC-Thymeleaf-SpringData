@@ -54,6 +54,9 @@ xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
             <li class="nav-item">
                 <a class="nav-link" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="!isAuthenticated()" th:href="@{/signup}">Signup </a>
+            </li>
         </ul>
 
     </div>
